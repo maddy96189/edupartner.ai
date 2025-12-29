@@ -1,0 +1,295 @@
+/* --- 1. Global/Reset Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff; /* White background for the whole app */
+    color: #333;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling on the main page */
+}
+
+/* --- 2. Main Layout --- */
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* --- 3. Sidebar Styling --- */
+.sidebar {
+    width: 280px; /* Width for the left panel */
+    background-color: #f7f9fc; /* Light gray background */
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    margin-bottom: 20px;
+}
+
+.dashboard-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.dashboard-btn:hover {
+    background-color: #e5e8ec;
+}
+
+.new-chat-section {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.new-chat-btn {
+    width: 100%;
+    background-color: #5b7ef9; /* Primary Blue/Purple Color */
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 20px; /* Pill shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background-color 0.2s;
+}
+
+.new-chat-btn:hover {
+    background-color: #4a6fe0;
+}
+
+.previous-chats {
+    margin-top: 20px;
+    overflow-y: auto; /* Scroll for the chat list */
+}
+
+.chats-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.chat-item {
+    padding: 10px 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.chat-item:hover {
+    background-color: #e5e8ec;
+}
+
+.chat-item:first-child { /* Active chat style */
+    background-color: #e5e8ec; 
+    border-left: 3px solid #5b7ef9;
+    padding-left: 2px;
+}
+
+.chat-text {
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.chat-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+
+/* --- 4. Main Content Styling --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #f9f6ff 100%); /* Subtle gradient background */
+}
+
+/* Header/AI Info */
+.header {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+    flex-shrink: 0;
+}
+
+.ai-tutor-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    color: #5b7ef9; /* Logo/Icon color */
+}
+
+.text .title {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.text .powered-by {
+    display: block;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Welcome Section */
+.welcome-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 800px; /* Center content */
+    margin: 0 auto;
+}
+
+.star-icon {
+    color: #5b7ef9; /* Star icon color */
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.welcome-section h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Suggestion Grid */
+.suggestion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.suggestion-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.suggestion-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-color: #5b7ef9;
+}
+
+
+/* --- 5. Input Bar Styling --- */
+.input-bar-container {
+    position: sticky; /* Or fixed, depending on intended behavior */
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Gradient effect to fade out content above the input bar */
+.input-bar-bg-gradient {
+    position: absolute;
+    top: -50px; /* Start the gradient above the bar */
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to top, white 50%, transparent 100%);
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+.input-bar {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Rounded corners */
+    padding: 8px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.chat-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.made-with {
+    font-size: 12px;
+    color: #888;
+}
+
+.send-btn {
+    background-color: #5b7ef9;
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    transform: rotate(90deg); /* Rotate for a send/up-arrow look */
+}
+
+.send-btn:hover {
+    background-color: #4a6fe0;
+}
